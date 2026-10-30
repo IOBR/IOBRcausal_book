@@ -50,7 +50,7 @@ without deploying. Configure Settings -> Pages -> Source as **GitHub Actions**
 once; successful main-branch builds then deploy the reviewed Book automatically.
 The workflow can also be started manually from Actions.
 
-The intended site is `https://iobr.github.io/IOBRcausal_book/`. Add an online
-tutorial link to the reader-facing README only after that URL is verified.
-An uploaded artifact is not a deployed website. Changing the package
-repository's visibility is not needed for publishing this documentation.
+The site is [IOBRcausal Book](https://iobr.github.io/IOBRcausal_book/).
+Its initial Linux build and deployment passed on 2026-10-30. Keep the public
+site link in the short reader-facing README. Changing the package repository's
+visibility is not needed for publishing this documentation.

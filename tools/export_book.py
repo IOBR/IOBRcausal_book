@@ -73,6 +73,7 @@ def export_book(sources, check=False):
 
     contents = ["# IOBRcausal Book", "",
                 "Practical English tutorials for installing IOBRcausal, running an analysis and reading the results.", "",
+                "- Online tutorial: [IOBRcausal Book](https://iobr.github.io/IOBRcausal_book/)",
                 "- Tutorial source: [IOBRcausal_book](https://github.com/IOBR/IOBRcausal_book)",
                 "- Read on GitHub: [Contents](github/index.md)",
                 "- R package and Skill: [IOBRcausal](https://github.com/IOBR/IOBRcausal)",
