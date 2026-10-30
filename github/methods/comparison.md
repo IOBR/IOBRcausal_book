@@ -1,0 +1,45 @@
+<!-- Generated from methods/comparison.qmd. Edit the QMD source and rebuild. -->
+
+# Multi-Method Comparison
+
+[Book contents](../../README.md) · [Previous: GPS (Generalized Propensity Score - Continuous Exposure)](gps.md) · [Next: Figures and export](../figures.md)
+
+Use the [synthetic data setup](index.md#synthetic-example-data) first; it defines
+`data` and the columns used below. These are advanced direct R examples.
+
+Compare estimates for compatible targets and effect scales. ORs, risk differences,
+HRs and survival contrasts are not interchangeable.
+
+```r
+compare_result <- causal_compare_all(
+  data,
+  treatment = "Immunotherapy",
+  outcome = "Response",
+  confounders = c("Age", "Sex", "Stage", "ECOG"),
+  outcome_type = "binary",
+  methods = c("GLM", "GComp", "AIPW", "IPW", "PSM", "CausalForest"),
+  boot_R = 500
+)
+
+# Method comparison table
+compare_methods(compare_result)
+
+# Forest plot
+iobr_causal_plot(compare_result, type = "forest")
+
+# Method consistency plot
+iobr_causal_plot(compare_result, type = "consistency")
+```
+
+
+## Read the result
+
+Keep requested, eligible, run, skipped and failed methods visible. A shared direction does not make differently scaled estimates numerically comparable. Several methods can share assumptions or backends; their agreement is not independent causal confirmation.
+
+See [effect scales and reporting](../results/reading-results.md),
+[diagnostics](../results/diagnostics.md) and the
+[current support reference](../reference/validation.md).
+
+---
+
+[Book contents](../../README.md) · [Previous: GPS (Generalized Propensity Score - Continuous Exposure)](gps.md) · [Next: Figures and export](../figures.md)

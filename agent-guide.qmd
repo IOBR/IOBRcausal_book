@@ -1,0 +1,63 @@
+---
+title: Use the IOBRcausal Skill
+---
+
+The Skill lets an AI host turn your task into the package's public request.
+Install it using the [installation guide](installation.qmd), then start a new
+Codex or Claude Code session.
+
+## Give the task and the files
+
+In Codex, use `$iobrcausal`; in Claude Code, use `/iobrcausal`.
+For example:
+
+```text
+$iobrcausal Inspect the expression matrix and clinical table in /path/to/project.
+Check sample IDs and gene coverage, then plan a pathway-first Response analysis.
+Use the baseline covariates in the supplied codebook.
+```
+
+For an already agreed execution task:
+
+```text
+$iobrcausal Run the agreed pathway-first analysis in /path/to/project.
+Keep the approved endpoint, covariates, seed and testing family.
+Deliver the complete endpoint tables, reading guide and figures.
+```
+
+For saved results:
+
+```text
+$iobrcausal Read /path/to/results and explain the requested feature's estimates.
+Draw a forest plot from the saved numbers and include the source table.
+```
+
+Supply endpoint coding and units, sample IDs, matrix orientation and the actual
+adjustment rationale. The host should inspect material gaps rather than infer
+clinical definitions from column names.
+
+## One execution entry
+
+The Skill uses `iobrcausal(request = ..., inputs = ...)` with an explicit
+complete-workflow request. Structured R requests do not need an LLM API.
+Direct estimator chapters are advanced R instruction; they are separate ways
+to ask a statistical question, not extra steps to run after a completed workflow.
+
+The host integration uses the model access already supplied by that host.
+Standalone natural-language calls from an independent R session need a configured
+provider. Keep credentials outside scripts and reports.
+
+## Optional package-managed integration
+
+If the package CLI is available:
+
+```bash
+iobrcausal agent install
+iobrcausal agent status
+iobrcausal start
+```
+
+This is an alternative integration route with package-managed client assets.
+Check actual host loading as well as installation status. The standard `npx`
+command can install only the Skill documents before R is available.
+Use [troubleshooting](reference/troubleshooting.qmd) if the launcher is not on PATH.

@@ -1,0 +1,56 @@
+---
+title: Read or plot saved results
+---
+
+Start here when the analysis already exists. Read a full saved object, RDS,
+workbook or delivery directory before requesting another fit.
+
+## Read an existing delivery
+
+```r
+readback <- iobrcausal(
+  request = list(operation = "read"),
+  inputs = list(path = "results/my_delivery")
+)
+print(readback)
+```
+
+A direct R reader is also available:
+
+```r
+bundle <- iobr_causal_read_result_bundle("results/my_delivery")
+iobr_causal_readout(bundle)
+```
+
+Directory discovery can be a bounded preview. Use the matching full numeric
+table and companion files before reporting a specific feature's estimate.
+
+## Draw a figure from saved numbers
+
+When `saved_table` is a single numeric effect table:
+
+```r
+figure <- iobrcausal(
+  request = list(operation = "plot", parameters = list(
+    plot_type = "forest", formats = c("png", "pdf", "svg")
+  )),
+  inputs = list(result = saved_table), output_dir = "figures"
+)
+```
+
+For a result object containing several endpoint tables, specify the matching
+`table_path`. The plot operation uses saved estimates and intervals. A survival
+curve additionally requires a saved curve cache; raw OS columns do not stand in
+for cached curves.
+
+Check the exported source table and `plot_provenance.csv` alongside each image.
+Explicit Log-OR and Log-HR values may be exponentiated with their own intervals;
+additive effects remain additive. A display subset retains the original family.
+
+## Reuse and reproduction
+
+Reuse a compatible saved result when the inputs and request are unchanged.
+An explicit `reproduce` request is different: it can execute a fresh association
+run using verified original inputs, seed and settings, then compare saved
+scientific tables. Frozen OS mediation has its own reuse rules; see
+[advanced analysis](../reference/advanced.qmd).

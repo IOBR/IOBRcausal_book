@@ -1,0 +1,29 @@
+source,book_pages,action
+vignettes/agent-console-contract.Rmd,agent-guide.qmd;workflows/saved-results.qmd,Merge shared request and recovery guidance
+vignettes/agent-getting-started.Rmd,installation.qmd;quick-start.qmd;agent-guide.qmd,Rewrite in English; use the maintained English demo
+vignettes/ai-tool-calling-guide.Rmd,agent-guide.qmd;workflows/saved-results.qmd,Organize by user task
+vignettes/beginner-quickstart.Rmd,quick-start.qmd;workflows/pathway-first.qmd;workflows/exposure-first.qmd,Split routes and remove repeated setup
+vignettes/candidate-workflow.Rmd,workflows/exposure-first.qmd;results/reading-results.qmd,Clarify feature scope and reading order
+vignettes/complex-survival-research.Rmd,reference/advanced.qmd;reference/functions.qmd,Keep bounded advanced-module overview
+vignettes/core-workflow.Rmd,workflows/pathway-first.qmd;reference/functions.qmd,Keep complete workflow first and direct APIs as reference
+vignettes/excel-result-bundle.Rmd,results/reading-results.qmd;workflows/saved-results.qmd,Retain current workbook names and read/no-refit guidance
+vignettes/explanation-evidence-gate.Rmd,results/reading-results.qmd;reference/validation.qmd,Merge reporting and validation boundaries
+vignettes/function-map.Rmd,reference/functions.qmd,Preserve full English function map
+vignettes/introduction.Rmd,index.qmd;data-preparation.qmd;methods/index.qmd,Separate introduction from task instructions
+vignettes/iobrcausal-quickstart.Rmd,installation.qmd;methods/index.qmd;results/reading-results.qmd,Keep direct estimator checks distinct from full workflow
+vignettes/iobrcausal-user-protocol.Rmd,data-preparation.qmd;workflows/exposure-first.qmd;reference/parameters.qmd;results/reading-results.qmd;figures.qmd,Split long protocol by task; retain installed article for API detail
+vignettes/nextgen-research.Rmd,reference/advanced.qmd;reference/functions.qmd,Keep research scope and no support promotion
+vignettes/parameter-control.Rmd,reference/parameters.qmd,Retain control dictionary and separate shared request parameters
+vignettes/pathway-first-minimal.Rmd,quick-start.qmd;workflows/pathway-first.qmd,Link exact maintained runnable English script
+vignettes/policy-learning-boundaries.Rmd,reference/advanced.qmd,Keep exploratory/prototype status
+vignettes/result-interpretation.Rmd,results/reading-results.qmd;results/diagnostics.qmd,Unify scale and reporting explanations
+vignettes/survival-nextgen-boundaries.Rmd,reference/advanced.qmd;reference/validation.qmd,Retain support and blocker fields
+vignettes/survival-platform.Rmd,reference/advanced.qmd;reference/functions.qmd,Avoid carrying old version-specific release claims forward
+vignettes/trust-evidence-audit.Rmd,reference/validation.qmd,Separate runtime support from validation evidence
+vignettes/user-guide.Rmd,data-preparation.qmd;workflows/pathway-first.qmd;workflows/exposure-first.qmd;results/reading-results.qmd,Merge repeated module orientation into task chapters
+vignettes/visualization-guide.Rmd,figures.qmd;workflows/saved-results.qmd,Retain figure/export guidance and saved-number provenance
+vignettes/zero-basis-master-guide.Rmd,data-preparation.qmd;workflows/exposure-first.qmd;reference/parameters.qmd;results/reading-results.qmd,Rewrite covered concepts in English; no Chinese Book entry
+README.md#core-functions,methods/glm.qmd;methods/gcomp.qmd;methods/aipw.qmd;methods/ipw.qmd;methods/tmle.qmd;methods/psm.qmd;methods/causal-forest.qmd;methods/gps.qmd;methods/comparison.qmd,Move all original method examples with corrected current interfaces
+README.md#visualization-functions,figures.qmd;workflows/saved-results.qmd,Move plotting guidance; keep original homepage images
+README.md#example-analysis-results,reference/historical-examples.qmd,Retain historical numbers with explicit non-current scope
+README.md#citation,reference/citation.qmd,Move full citation into Book and keep concise repository citation

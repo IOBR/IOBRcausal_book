@@ -1,0 +1,61 @@
+---
+title: Troubleshooting
+---
+
+Start with the exact error, package version and loaded path. Retrying with
+different scientific settings can change the question without solving the problem.
+
+## Repository access is denied
+
+Check Git availability and whether your GitHub account can access IOBR/IOBRcausal.
+Use your normal Git credential manager. Keep tokens out of commands saved in
+scripts or reports. A private repository may return 404 to an anonymous client.
+
+## R loads an older package
+
+```r
+packageVersion("IOBRcausal")
+find.package("IOBRcausal")
+.libPaths()
+```
+
+Restart R after installing an update. Check child Rscript processes as well as
+the interactive session when multiple libraries exist.
+
+## The terminal cannot find iobrcausal
+
+The package launcher can be called from R without adding it to PATH:
+
+```r
+launcher <- system.file("exec", "iobrcausal.R", package = "IOBRcausal")
+rscript <- file.path(R.home("bin"),
+  if (.Platform$OS.type == "windows") "Rscript.exe" else "Rscript")
+system2(rscript, c(shQuote(launcher), "start"))
+```
+
+For Skill installation, also check `node --version`, `npm --version` and
+`git --version`. The documented standalone command requires Node.js 22.20 or later.
+
+## A method was skipped
+
+Read the method-specific reason. Typical causes are an unsupported
+exposure/outcome/target combination, insufficient support or a missing optional
+dependency. A skip is different from a fitted null effect or an attempted failure.
+
+## No candidates were retained
+
+Check the requested family, missingness, sample/event counts, gene-set coverage,
+configured gates and full audit tables. A completed workflow with no retained
+candidates is a valid result. Keep it distinct from a failed or incomplete stage.
+
+## Excel or a figure is missing
+
+Inspect the actual artifact list, writer dependency status and validation output.
+Look for an explicitly reported CSV fallback. Saved-number plots need matching
+numeric evidence; a survival curve needs a saved curve cache.
+
+## Share a useful issue
+
+Include the minimal synthetic input, request, exact error, version, session
+information and the stage that failed. Remove patient identifiers and credentials.
+Use the [GitHub issue tracker](https://github.com/IOBR/IOBRcausal/issues).

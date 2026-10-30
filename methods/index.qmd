@@ -1,0 +1,49 @@
+---
+title: Choose a method
+---
+
+Start with the study question, exposure contrast, outcome and adjustment set.
+Method availability depends on that combination. The original eight estimator
+families are retained here, with examples aligned to the current public wrappers.
+
+| Method | Main use | Read next |
+| --- | --- | --- |
+| GLM | Adjusted outcome regression | [GLM](glm.qmd) |
+| G-Computation | Average modeled outcomes under exposure contrasts | [G-Computation](gcomp.qmd) |
+| AIPW | Outcome and propensity models with optional cross-fitting | [AIPW](aipw.qmd) |
+| IPW | Propensity-based weighting | [IPW](ipw.qmd) |
+| TMLE | Targeted outcome-model updating | [TMLE](tmle.qmd) |
+| PSM | Propensity-score matching | [PSM](psm.qmd) |
+| Causal Forest | Exploratory effect heterogeneity | [Causal Forest](causal-forest.qmd) |
+| GPS | Dose contrasts for a continuous exposure | [GPS](gps.qmd) |
+
+[Multi-method comparison](comparison.qmd) is a comparison utility, not a ninth
+estimator or a vote on causality. Compare only compatible targets and scales.
+
+## Synthetic example data
+
+[Download methods-data.R](../assets/downloads/methods-data.R), save it in your
+working directory, and run:
+
+```r
+library(IOBRcausal)
+source("methods-data.R")
+str(data)
+```
+
+The script creates 240 fictional subjects and defines `data`, including the
+columns used on the method pages. `Immunotherapy` is a simulated binary exposure;
+`TMB` is a simulated continuous exposure. The response, continuous outcome and
+survival times are also artificial. Use the examples to learn the interface,
+not to make clinical claims or calibrate a method.
+
+## Read the returned contract
+
+Check `Scale`, contrast, uncertainty, method status, support and diagnostics.
+Binary, continuous and survival refer to outcome types; the exposure has its own
+type. Continuous-exposure policies and survival horizons can require the core
+`iobr_causal_estimate()` interface rather than a convenience wrapper.
+
+Use the [support reference](../reference/validation.qmd) for implementation and
+validation limits. For complete analysis delivery through one request, return
+to the [workflow chapters](../workflows/pathway-first.qmd).

@@ -1,0 +1,26 @@
+---
+title: "AIPW (Augmented Inverse Probability Weighting)"
+---
+
+Use the [synthetic data setup](index.qmd#synthetic-example-data) first; it defines
+`data` and the columns used below. These are advanced direct R examples.
+
+Combine outcome and propensity models, with optional cross-fitting. Double
+robustness still requires the other identification and regularity assumptions.
+For binary outcomes, the current estimator reports risk differences, not ORs.
+
+```r
+aipw_result <- causal_aipw(data, "Immunotherapy", "Response",
+                           confounders = c("Age", "Sex", "Stage", "ECOG"),
+                           outcome_type = "binary",
+                           crossfit = TRUE,  # Cross-fitting to reduce overfitting
+                           K = 5)
+```
+
+## Read the result
+
+For non-survival outcomes, current outputs are RiskDiff or MeanDiff. Cross-fitting does not remove the identification assumptions. Continuous-exposure policies and survival contrasts need explicit eligible settings; the simple binary-exposure example does not establish their validation.
+
+See [effect scales and reporting](../results/reading-results.qmd),
+[diagnostics](../results/diagnostics.qmd) and the
+[current support reference](../reference/validation.qmd).

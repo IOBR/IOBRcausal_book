@@ -1,0 +1,21 @@
+/*-- scss:defaults --*/
+$primary: #285c7d;
+$link-color: #176684;
+$body-color: #233747;
+$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", sans-serif;
+$headings-font-weight: 600;
+$code-font-size: 0.86em;
+
+/*-- scss:rules --*/
+#quarto-content { line-height: 1.7; }
+h1, h2, h3 { color: #183e56; }
+h2 { margin-top: 2rem; }
+.sidebar-item-text { line-height: 1.4; }
+.book-intro { font-size: 1.12rem; max-width: 48rem; color: #496274; }
+.start-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 1.5rem 0; }
+.start-links > p { margin: 0; }
+.start-links a { display: block; height: 100%; padding: 1rem; border: 1px solid #dce5eb; border-radius: .5rem; text-decoration: none; background: #f5f9fb; }
+.start-links a:hover { background: #eaf2f6; border-color: #285c7d; }
+.book-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #dce5eb; color: #627887; font-size: .85rem; }
+table { font-size: .94rem; }
+@media (max-width: 700px) { .start-links { grid-template-columns: 1fr; } }

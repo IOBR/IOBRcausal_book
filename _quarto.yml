@@ -1,0 +1,79 @@
+project:
+  type: book
+  output-dir: _book
+  pre-render:
+    - python tools/prepare_book.py
+  resources:
+    - assets/**
+
+book:
+  title: IOBRcausal Book
+  subtitle: From expression and clinical data to readable results
+  author:
+    - Linfeng Liu
+    - Dongqiang Zeng
+  repo-url: https://github.com/IOBR/IOBRcausal_book
+  repo-actions: [edit, issue]
+  search: true
+  sidebar:
+    style: docked
+    collapse-level: 1
+  chapters:
+    - index.qmd
+    - part: Getting started
+      chapters:
+        - installation.qmd
+        - quick-start.qmd
+        - data-preparation.qmd
+    - part: Workflows
+      chapters:
+        - workflows/pathway-first.qmd
+        - workflows/exposure-first.qmd
+        - workflows/saved-results.qmd
+    - part: Reading results
+      chapters:
+        - results/reading-results.qmd
+        - results/diagnostics.qmd
+    - part: Methods
+      chapters:
+        - methods/index.qmd
+        - methods/glm.qmd
+        - methods/gcomp.qmd
+        - methods/aipw.qmd
+        - methods/ipw.qmd
+        - methods/tmle.qmd
+        - methods/psm.qmd
+        - methods/causal-forest.qmd
+        - methods/gps.qmd
+        - methods/comparison.qmd
+    - part: Figures and Skill
+      chapters:
+        - figures.qmd
+        - agent-guide.qmd
+    - part: Reference
+      chapters:
+        - reference/parameters.qmd
+        - reference/functions.qmd
+        - reference/troubleshooting.qmd
+        - reference/validation.qmd
+        - reference/advanced.qmd
+        - reference/citation.qmd
+  appendices:
+    - reference/historical-examples.qmd
+
+lang: en
+execute:
+  enabled: false
+format:
+  html:
+    theme: [cosmo, styles.scss]
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    code-copy: true
+    code-overflow: wrap
+    link-external-newwindow: true
+    highlight-style: pygments
+    smooth-scroll: true
+    page-layout: article
+    include-after-body: footer.html

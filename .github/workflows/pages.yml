@@ -1,0 +1,60 @@
+name: Book
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: book-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.7.32'
+      - name: Render the Book without fitting models
+        run: quarto render . --no-execute
+      - name: Check chapters, links and preserved resources
+        run: python tools/check_book.py
+      - name: Check the GitHub reading edition is current
+        run: git diff --exit-code -- README.md github
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iobrcausal-book
+          path: _book
+          retention-days: 14
+          if-no-files-found: error
+      - name: Upload the website
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _book
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Publish the Book
+        id: deployment
+        uses: actions/deploy-pages@v4

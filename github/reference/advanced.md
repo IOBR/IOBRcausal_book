@@ -1,0 +1,59 @@
+<!-- Generated from reference/advanced.qmd. Edit the QMD source and rebuild. -->
+
+# Advanced analysis
+
+[Book contents](../../README.md) · [Previous: Validation and method support](validation.md) · [Next: Citation and support](citation.md)
+
+Use these modules after defining the main scientific question. Availability and
+support vary by design; an advanced API name is not a support promotion.
+
+## Survival beyond a Cox summary
+
+The package offers standard survival reports, diagnostics, RMST and milestone
+summaries, and bounded extensions for competing risks, longitudinal treatments,
+delayed entry and multistate settings. Check the current adapter's data contract,
+time horizon, censoring assumptions and support status.
+
+`iobr_causal_survival_platform_report()` and
+`iobr_causal_survival_vnext_report()` expose support plans, diagnostics, skipped
+and failed sections. Review `Support_Status`, `Evidence_Class`,
+`Promotion_Blocker` and the recommended next step with the numeric tables.
+Competing-risk and multistate paths have limited support; policy learning remains
+exploratory unless an exact supported configuration says otherwise.
+
+## Frozen OS mediation
+
+Ordinary Response association and ordinary OS association are different from
+formal mediation. In the mechanism project governed by the frozen OS protocol,
+formal mediation is OS-only and HDMT is excluded.
+
+Before executing mediation, check the gene's saved results, cohort, endpoint,
+exposure/mediator definitions, covariates, model version and complete family.
+Reuse compatible frozen results. A missing or incompatible analysis requires a
+recorded reason and the same fixed framework used for the other genes.
+
+The dedicated `OS_MEDIATION_V1` adapter uses a frozen OLS mediator model and
+right-censored log-normal AFT outcome model with the recorded adjustment and
+scaling. Indirect and direct effects are on a log-survival-time scale;
+exponentiation gives a time ratio, not HR. Keep total, indirect and residual
+effects distinct. Response OR attenuation is auxiliary association evidence.
+
+For that project, FDR below 0.10 has priority and 0.10–0.15 remains exploratory.
+Keep original results and contradictions. A statistical decomposition does not
+prove molecular function, a complete mechanism or causal identification.
+These are project-specific rules, not a universal restriction on every public API.
+
+## Feature selection and graphs
+
+Feature selection prioritizes variables; DAG discovery explores possible
+structure under assumptions. Neither supplies biological validation or a
+verified adjustment set automatically. Record selection history and review
+same-cohort selection and self-inclusion before interpreting formal follow-up.
+
+The [function map](functions.md) lists the relevant public interfaces. Consult
+their installed R help for exact required inputs rather than adapting a small
+baseline example to a complex design by changing one label.
+
+---
+
+[Book contents](../../README.md) · [Previous: Validation and method support](validation.md) · [Next: Citation and support](citation.md)

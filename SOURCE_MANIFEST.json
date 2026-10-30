@@ -1,0 +1,99 @@
+{
+  "package_repository": "https://github.com/IOBR/IOBRcausal",
+  "package_commit": "6e6d443ac557fe629a83f71317331614203dcad5",
+  "package_version": "32.2.3",
+  "original_articles": [
+    "vignettes/agent-console-contract.Rmd",
+    "vignettes/agent-getting-started.Rmd",
+    "vignettes/ai-tool-calling-guide.Rmd",
+    "vignettes/beginner-quickstart.Rmd",
+    "vignettes/candidate-workflow.Rmd",
+    "vignettes/complex-survival-research.Rmd",
+    "vignettes/core-workflow.Rmd",
+    "vignettes/excel-result-bundle.Rmd",
+    "vignettes/explanation-evidence-gate.Rmd",
+    "vignettes/function-map.Rmd",
+    "vignettes/introduction.Rmd",
+    "vignettes/iobrcausal-quickstart.Rmd",
+    "vignettes/iobrcausal-user-protocol.Rmd",
+    "vignettes/nextgen-research.Rmd",
+    "vignettes/parameter-control.Rmd",
+    "vignettes/pathway-first-minimal.Rmd",
+    "vignettes/policy-learning-boundaries.Rmd",
+    "vignettes/result-interpretation.Rmd",
+    "vignettes/survival-nextgen-boundaries.Rmd",
+    "vignettes/survival-platform.Rmd",
+    "vignettes/trust-evidence-audit.Rmd",
+    "vignettes/user-guide.Rmd",
+    "vignettes/visualization-guide.Rmd",
+    "vignettes/zero-basis-master-guide.Rmd"
+  ],
+  "resources": [
+    {
+      "source": "assets/downloads/pathway_first_minimal.R",
+      "copy": "downloads/pathway_first_minimal.R",
+      "package_source": "inst/examples/pathway_first_minimal.R",
+      "sha256": "43102c9985c6155da2273ecf5e05b28914129c221bb9554cb17f08b37ead85cc"
+    },
+    {
+      "source": "assets/downloads/exposure_first_run_template.R",
+      "copy": "downloads/exposure_first_run_template.R",
+      "package_source": "inst/IOBRcausalSkill/templates/exposure_first_run_template.R",
+      "sha256": "e5cabac00c9f6303762997eb0ee2b28e4171024cf3399b974d79e6824c4be714"
+    },
+    {
+      "source": "assets/downloads/methods-data.R",
+      "copy": "downloads/methods-data.R",
+      "package_source": "book/examples/methods-data.R",
+      "sha256": "4133aeed69113b8ce9ddf1441f1f2e0b20cb38c0efc0f701391628a873e31634"
+    },
+    {
+      "source": "assets/downloads/method-support-32.2.3.csv",
+      "copy": "downloads/method-support-32.2.3.csv",
+      "package_source": "inst/validation/method-support-32.2.3.csv",
+      "sha256": "868ca6edc80e162914717bce2a46c7da4d22e7f1f428a48b1bd9ff84d4c636aa"
+    },
+    {
+      "source": "assets/data/iobrcausal_teaching_iobr.csv",
+      "copy": "data/iobrcausal_teaching_iobr.csv",
+      "package_source": "inst/extdata/iobrcausal_teaching_iobr.csv",
+      "sha256": "290f1462de04d537d986848a339c230494eaf6500b81baf1bd0d898449d5a175"
+    },
+    {
+      "source": "assets/figures/01-forest-plot-CORRECTED.png",
+      "copy": "figures/01-forest-plot-CORRECTED.png",
+      "package_source": "man/figures/01-forest-plot-CORRECTED.png",
+      "sha256": "7b344307450dfdedde28fadb495deb0a43ccef80df27536e4c18eea6dec24400"
+    },
+    {
+      "source": "assets/figures/07-method-consistency-plot.png",
+      "copy": "figures/07-method-consistency-plot.png",
+      "package_source": "man/figures/07-method-consistency-plot.png",
+      "sha256": "42bebda0745d432e593ddd43615a32e267b2a595f1ac42b618a371ec0d9249ff"
+    },
+    {
+      "source": "assets/figures/example_clinical_plot.png",
+      "copy": "figures/example_clinical_plot.png",
+      "package_source": "man/figures/example_clinical_plot.png",
+      "sha256": "ff16a70c21eb23d5671edd2424bf20b2e6649f0a23b476863f46682b6de475b4"
+    },
+    {
+      "source": "assets/figures/example_forest_plot.png",
+      "copy": "figures/example_forest_plot.png",
+      "package_source": "man/figures/example_forest_plot.png",
+      "sha256": "76578d2206d5f6d8b85dcaf2aec91df1939b27e609ca4df674ae7d536ce74671"
+    },
+    {
+      "source": "assets/figures/example_love_plot.png",
+      "copy": "figures/example_love_plot.png",
+      "package_source": "man/figures/example_love_plot.png",
+      "sha256": "a6e169c139bdd97b070d17662e99d75d5acd4f0d8945100600aa607a9f495be9"
+    },
+    {
+      "source": "assets/figures/IOBRcausal-WF.png",
+      "copy": "figures/IOBRcausal-WF.png",
+      "package_source": "man/figures/IOBRcausal-WF.png",
+      "sha256": "015b1dfda4f105c591a7801b1e3b00ff9970b1ee9dc6ce6ccad295f8926f25da"
+    }
+  ]
+}

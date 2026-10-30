@@ -1,0 +1,45 @@
+<!-- Generated from results/diagnostics.qmd. Edit the QMD source and rebuild. -->
+
+# Diagnostics and sensitivity
+
+[Book contents](../../README.md) · [Previous: Read the results](reading-results.md) · [Next: Choose a method](../methods/index.md)
+
+Review diagnostics before interpreting a precise-looking estimate. They answer
+different questions from the effect table.
+
+| Check | What to look for | What to do next |
+| --- | --- | --- |
+| Sample and event counts | Sparse groups, few events, exclusions | Review coding, missingness and eligible scope |
+| Propensity overlap | Unsupported treatment comparisons | Review the target population and contrast |
+| Weights and ESS | Dominant observations or low effective sample size | Inspect raw and truncated weight diagnostics |
+| Covariate balance | Residual standardized differences | Review the matching/weighting design |
+| PH diagnostics | Evidence against proportional hazards | Review Cox interpretation and eligible survival contrasts |
+| Censoring and horizon | Weak follow-up at the target time | Check the estimand's support and assumptions |
+| Method status | Skipped versus attempted-and-failed | Read the specific reason instead of treating a blank as zero |
+
+The SMD 0.1 line, PH P-value references and other defaults are review aids. None
+is a universal certificate of identification. See [parameter control](../reference/parameters.md)
+for explicit settings and record sensitivity choices separately from the primary model.
+
+## Sensitivity summaries
+
+E-values, tipping-point summaries, matching sensitivity and related supplements
+provide method- and scale-specific context. They do not establish absence of
+unmeasured confounding. A deterministic null-distance calculation is not a
+model-based hidden-bias threshold.
+
+Read which sensitivity methods were requested, eligible, run, skipped and failed.
+If a method is ineligible for a risk difference or other additive target, keep
+that status instead of borrowing another estimator's numbers.
+
+## Keep the audit trail
+
+Save the input definition, selection history, settings, full testing family,
+diagnostics and original method tables. A primary display row is a presentation
+choice. It does not mean other requested methods were run successfully or support
+the same target. Runtime support and method validation are documented separately
+in [validation and support](../reference/validation.md).
+
+---
+
+[Book contents](../../README.md) · [Previous: Read the results](reading-results.md) · [Next: Choose a method](../methods/index.md)

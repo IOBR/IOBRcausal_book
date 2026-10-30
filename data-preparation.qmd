@@ -1,0 +1,50 @@
+---
+title: Prepare your data
+---
+
+Choose the route that matches your question before changing the input table.
+
+| What you have | Route | Required inputs |
+| --- | --- | --- |
+| Expression and clinical data | Pathway-first | Expression, clinical table and gene sets |
+| Named genes, signatures or scores | Exposure-first | Feature table and explicit feature names |
+| A saved RDS, workbook or delivery folder | Read or plot | The saved result and the requested task |
+
+## Expression and clinical data
+
+Use a numeric expression matrix with genes in rows and samples in columns,
+unless you explicitly set another orientation. The clinical table has one row
+per analysis subject and a unique sample ID column. Match IDs explicitly;
+column position alone is not a sample map.
+
+Keep the original expression scale and any transformation recorded. TPM,
+log-transformed abundance and standardized scores are different inputs. Gene
+identifiers must match the gene sets; inspect coverage before interpreting scores.
+Bundled IOBR signatures, supported curated sets and user-supplied membership
+are described in the [pathway-first chapter](workflows/pathway-first.qmd).
+
+## A feature table
+
+Each row is one subject. Keep identifiers, features, endpoints and baseline
+covariates in separate named columns. For example:
+
+| ID | Selected_score | Age | Sex | Response | OS_time | OS_status |
+| --- | --- | --- | --- | --- | --- | --- |
+| S001 | 0.42 | 61 | F | 1 | 12.5 | 1 |
+| S002 | -0.15 | 68 | M | 0 | 20.0 | 0 |
+
+These two rows illustrate the format only. They cannot support a fitted analysis.
+Name the requested features explicitly so unrelated numeric columns stay out.
+
+## Define endpoints and covariates
+
+- **Response:** record exactly what 1 and 0 mean, including how CR/PR and other
+  categories are handled. Missing response is not automatically non-response.
+- **OS:** provide time, event status, the event code and time unit. Check event
+  and censoring counts after matching subjects.
+- **Covariates:** use the agreed baseline adjustment set. A tutorial list such
+  as Age, Sex and ECOG is an example, not a verified set for every study.
+
+Check duplicate IDs, missing values, invalid categories and unsupported exposure
+contrasts before execution. Keep the full requested feature family for FDR;
+selecting a display subset does not redefine that family.

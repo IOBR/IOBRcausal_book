@@ -1,0 +1,54 @@
+---
+title: Your first analysis
+---
+
+Run a complete pathway-first example before preparing your own files. The
+maintained script uses 80 synthetic samples, two bundled signatures, GLM and one
+requested Response endpoint. No AI service or API key is needed. The data are synthetic.
+
+## Locate the example
+
+```r
+library(IOBRcausal)
+script <- system.file("examples", "pathway_first_minimal.R", package = "IOBRcausal")
+stopifnot(nzchar(script), file.exists(script))
+rscript <- file.path(R.home("bin"),
+  if (.Platform$OS.type == "windows") "Rscript.exe" else "Rscript")
+Sys.setenv(IOBRCAUSAL_EXAMPLE_OUTPUT = file.path(path.expand("~"), "iobrcausal-demo"))
+```
+
+You can also [download the same English script](assets/downloads/pathway_first_minimal.R).
+It uses the public `iobrcausal()` entry for the complete workflow.
+
+## Preview, then run
+
+```r
+# Preview the inputs and planned stages.
+system2(rscript, shQuote(script))
+
+# Execute the synthetic example when you are ready.
+system2(rscript, c(shQuote(script), "--run"))
+```
+
+The preview does not fit models. The executed script prints the actual delivery
+directory inside `~/iobrcausal-demo` (your home folder). Open that printed path
+to find the results. If several package libraries exist, use the same R installation and
+check the engine path rather than assuming the subprocess loaded your latest package.
+
+## Open the result
+
+Open `README.md` inside the delivery directory printed by the script. Follow its
+links to validation, the endpoint report, full statistics and figures. Read the
+actual stage statuses; an empty candidate sheet can be a valid outcome.
+
+| What to inspect | What it tells you |
+| --- | --- |
+| Requested endpoint | Only Response was requested in this example |
+| Workflow stages | Which steps completed, were empty, skipped or failed |
+| Formal estimate table | Effect scale, uncertainty, method and support |
+| Pathway-gene mapping | Which original members connect each pathway to genes |
+| Full audit tables | Rows hidden from a short display, including failures |
+
+To adapt this to your files, continue with [data preparation](data-preparation.qmd)
+and the [pathway-first workflow](workflows/pathway-first.qmd).
+To inspect an existing delivery, use [saved results](workflows/saved-results.qmd).

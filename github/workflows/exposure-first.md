@@ -1,0 +1,70 @@
+<!-- Generated from workflows/exposure-first.qmd. Edit the QMD source and rebuild. -->
+
+# Analyse a specified gene or score
+
+[Book contents](../../README.md) · [Previous: From expression to pathways and genes](pathway-first.md) · [Next: Read or plot saved results](saved-results.md)
+
+Use exposure-first when your question already identifies the genes, signatures,
+biomarkers or scores to analyse. Precomputed features can still be selected
+after looking at the data; record that selection history.
+
+## Read your feature table
+
+Replace this path with your table. For practice, you can use the
+[synthetic feature table](../../assets/data/iobrcausal_teaching_iobr.csv), which
+contains the feature and covariate names used below.
+
+```r
+library(IOBRcausal)
+dat <- read.csv("analysis_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
+```
+
+Each row is one subject. Confirm the endpoint coding and the named columns
+after the [input checks](../data-preparation.md).
+
+## Define the exact scope
+
+```r
+request <- list(
+  operation = "analyze", workflow = "exposure_first",
+  analysis_type = "association",
+  features = c("T_cell_inflamed_score", "Myeloid_score"),
+  covariates = c("Age", "Sex", "ECOG"),
+  endpoints = list(binary = "Response"), methods = "GLM",
+  parameters = list(complete_workflow = TRUE, seed = 20261030L, profile = "standard")
+)
+run <- iobrcausal(
+  request = request, inputs = list(data = dat),
+  output_dir = "results/exposure_first", plan_only = TRUE
+)
+```
+
+After checking the plan, execute that same call with `plan_only = FALSE`.
+Unlisted numeric features stay outside the requested analysis. For a complete
+file-based template, [download the maintained script](../../assets/downloads/exposure_first_run_template.R).
+That script illustrates OS only; set its endpoint list to your agreed scope.
+
+## An OS endpoint
+
+Use the event definition and time unit from your own codebook:
+
+```r
+request$endpoints <- list(
+  time = "OS_time", status = "OS_status", event = 1, time_unit = "months"
+)
+```
+
+This changes the requested endpoint to ordinary survival association. It does
+not request formal mediation. See the [advanced guide](../reference/advanced.md)
+for the separate frozen OS mediation contract.
+
+## Read exposure reports
+
+The endpoint workbooks use `Exposure_Stats`, `Exposure_Method_Details`,
+`Exposure_Explain` and `Exposure_Full_Audit`. They do not require pathway-gene
+fields. Read the endpoint workbook before the integrated review, and keep
+method-specific estimates, scales, uncertainties and skipped rows intact.
+
+---
+
+[Book contents](../../README.md) · [Previous: From expression to pathways and genes](pathway-first.md) · [Next: Read or plot saved results](saved-results.md)
